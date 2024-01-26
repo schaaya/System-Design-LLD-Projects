@@ -40,6 +40,12 @@ public class VendingMachineImpl implements VendingMachine {
 
     throw new SoldOutException("Sold Out, Please buy amother item");
   }
+  @Override public void insertCoin(Coin coin)
+  {
+    currentBalance = currentBalance + coin.getDenomination();
+    cashInventory.add(coin);
+  }
+
 
   @Overide
   public Bucket<Item, List<Coin>> collectItemAndChange(){
